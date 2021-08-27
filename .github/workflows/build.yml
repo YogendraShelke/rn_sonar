@@ -10,6 +10,14 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+              id: npm
+              run: npm install
+
+      - name: Unit test
+              id: tests
+              run: npm run test
+              
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
